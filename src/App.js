@@ -54,7 +54,7 @@ function App() {
           <p className="green light-circle"></p>
         )}
       </div>
-      <button onClick={StartButton} />
+      {/* <button onClick={StartButton} /> */}
     </div>
   );
 }
