@@ -7,15 +7,16 @@ function App() {
   const [green, setGreenState] = useState(true);
 
   //cambia el estado de los useState siempre y cuando detecte algun cambio en green
-  useEffect(() => {
-    setRedState(false);
-    setYellowState(true);
-    setGreenState(false);
-  }, [green]);
+  //ya nose usa este ya que chocaba con mi codigo de startButton
+  // useEffect(() => {
+  //   // setRedState(false);
+  //   setYellowState(true);
+  //   setGreenState(false);
+  // }, [green]);
   //variable dodne esta almacenada la logica debooleanos
-  const StartButton = (e) => {
-    setGreenState(true);
-    if (green === false) {
+  const StartButton = () => {
+    setGreenState(false);
+    if (green === true) {
       setRedState(true);
       setYellowState(true);
     }
@@ -27,8 +28,6 @@ function App() {
       setRedState(false);
       setYellowState(true);
     }
-
-    setGreenState(false);
   };
 
   //FUNCION PARA EJECUTAR LA FUNCION CADA 2 SEGUNDOS
@@ -38,28 +37,28 @@ function App() {
     <div className="App">
       <h1>Semaforo</h1>
       <div className="semaforo">
-        {yellow ? (
+        {red ? (
           <p className="light-circle"> </p>
         ) : (
           <p className="red light-circle"></p>
         )}
-        {red ? (
-          <p className="yellow light-circle"> </p>
-        ) : (
+        {yellow ? (
           <p className="light-circle"> </p>
+        ) : (
+          <p className="yellow light-circle"> </p>
         )}
+
         {green ? (
           <p className="light-circle"></p>
         ) : (
           <p className="green light-circle"></p>
         )}
       </div>
-      {/* <button onClick={StartButton} /> */}
+      <button onClick={StartButton} />
     </div>
   );
 }
 
 export default App;
-
-// POR CUESTIONES DE TIEMPO LO HICE CON EL SEMAFORO VERDE FIJO YA QUE NECESITABA UN POCO MAS DE TIMPO PaRA AGREGARLE MAS LOGICA EN EL SEMAFORO YA QUE TUVE QUE SALIR
-// PERO PRACTICAMENTE LO HIZE TODO USANDO REACT CON USESTATE USEEFFECT, QUEDO AL PENDIENTE DE MIS RESULTADOS
+//CODIGFO ACTULIZADO CON LA FUNCON AUTOMATICA CON ELSEMAFORO LISTO FUNCIONANDO CORRECTAMENTE
+//SE HIZO UNAPEQUEÑA MODIFICACION AM I CODIGO PERO YA QUEDO LISTO ESTOY AL PENDIENTE DE SU RETROALIMENTACION
